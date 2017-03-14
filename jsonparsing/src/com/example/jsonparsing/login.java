@@ -54,7 +54,7 @@ public class login extends Activity implements OnClickListener {
 		String password = this.pwdPassword.getText().toString();
 		
 		try {
-			URL url = new URL("http://10.0.2.2/andriodwebapp/login.php?username=" + username + "&password="+password);
+			URL url = new URL("http://10.0.2.2/mywebapp/login.php?username=" + username + "&password="+password);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			InputStream is = conn.getInputStream();
 			
@@ -73,7 +73,7 @@ public class login extends Activity implements OnClickListener {
 			AlertDialog dialog = builder.create();
 			dialog.show();
 			
-			if(sb.toString().equals("Login Accepted"))
+			if(sb.toString().equals("Login Accept") || sb.toString().equals("Login Accepted"))
 			{
 				Intent intent = new Intent(this, MainActivity.class);
 				this.startActivity(intent);

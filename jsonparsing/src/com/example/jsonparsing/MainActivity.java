@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
         
         try {
-			URL url = new URL("http://10.0.2.2/androidweb/listforandroid.php");
+			URL url = new URL("http://10.0.2.2/mywebapp/listforandroid.php");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			StringBuffer sb = new StringBuffer();
 			int c = 0;

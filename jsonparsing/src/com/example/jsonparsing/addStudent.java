@@ -93,20 +93,10 @@ public class addStudent extends Activity implements OnClickListener, OnItemSelec
 		
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		StrictMode.setThreadPolicy(policy);	
-		this.submit.setOnClickListener(new View.OnClickListener() {
+		this.submit.setOnClickListener(this);
 			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		
 		
 	}
-
-
-
 
 
 	@Override
@@ -119,7 +109,7 @@ public class addStudent extends Activity implements OnClickListener, OnItemSelec
 		
 		
 		try {
-			URL url = new URL("http://10.0.2.2/androidweb/addstudent.php?idno="+idno+"&lname="+familyname+"&fname="+givenname+"&course="+this.selectedCourse+"&year="+this.selectedYearlevel+"&campus="+this.selectedCampus);
+			URL url = new URL("http://10.0.2.2/mywebapp/addstudent.php?idno="+idno+"&fname="+familyname+"&lname="+givenname+"&course="+this.selectedCourse+"&year="+this.selectedYearlevel+"&campus="+this.selectedCampus);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			
 			InputStream is = conn.getInputStream();
@@ -131,7 +121,7 @@ public class addStudent extends Activity implements OnClickListener, OnItemSelec
 			}
 			is.close();
 			conn.disconnect();
-			Toast.makeText(this, sb.toString(),Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Student Added",Toast.LENGTH_LONG).show();
 			startActivity(new Intent(this, MainActivity.class));
 		
 		} catch (MalformedURLException e) {
